@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnglishGo! - Login</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'eg-bg': '#e0fef6',
+                        'eg-navy': '#1e293b',
+                        'eg-orange': '#f97316',
+                        'eg-orange-dark': '#ea580c',
+                        'eg-red': '#ef4444',
+                        'eg-red-dark': '#b91c1c',
+                        'eg-blue': '#3b82f6',
+                        'eg-blue-dark': '#2563eb',
+                        'eg-green': '#10b981',
+                        'eg-green-dark': '#059669',
+                        'eg-purple': '#8b5cf6',
+                        'eg-pink': '#ec4899',
+                    },
+                    fontFamily: {
+                        sans: ['Fredoka', 'sans-serif'],
+                    },
+                    animation: {
+                        'bounce-fun': 'bounce-fun 1s ease infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'bounce-fun': {
+                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                            '50%': { transform: 'translateY(-10%) scale(1.05)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #f0fdfa;
+            background-image: radial-gradient(#93c5fd 3px, transparent 3px);
+            background-size: 40px 40px;
+            color: #1e293b;
+        }
+
+        .btn-blue {
+            background-color: #3b82f6;
+            color: white;
+            box-shadow: 0 6px 0 #2563eb;
+            transition: all 0.1s;
+            border: 2px solid #2563eb;
+        }
+        .btn-blue:active {
+            box-shadow: 0 0 0 #2563eb;
+            transform: translateY(6px);
+        }
+
+        .input-game {
+            border: 3px solid #cbd5e1;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 #e2e8f0;
+        }
+        .input-game:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 0 #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 100;
+            animation: pop 0.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        @keyframes pop {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+            50% { transform: translate(var(--tx), var(--ty)) scale(1.2); opacity: 1; }
+            100% { transform: translate(var(--tx), calc(var(--ty) + 20px)) scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden select-none">
+
+    <div class="absolute top-10 left-10 text-5xl animate-float z-0 opacity-90" style="animation-delay: 0s;">🎒</div>
+    <div class="absolute bottom-20 left-10 text-6xl animate-float z-0 opacity-90" style="animation-delay: 1s;">ABC</div>
+    <div class="absolute top-20 right-10 text-6xl animate-float z-0 opacity-90" style="animation-delay: 0.5s;">✏️</div>
+    <div class="absolute bottom-10 right-20 text-5xl animate-float z-0 opacity-90" style="animation-delay: 1.5s;">🌟</div>
+
+    <div class="relative z-10 w-full max-w-4xl bg-white rounded-[40px] shadow-2xl flex flex-col md:flex-row overflow-hidden border-4 border-white">
+        
+        <!-- Branding Section -->
+        <div class="md:w-1/2 bg-gradient-to-br from-blue-100 to-cyan-100 p-8 flex flex-col items-center justify-center text-center relative overflow-hidden border-b-4 md:border-b-0 md:border-r-4 border-gray-100">
+            <div class="relative z-10 flex flex-col items-center">
+                
+                <div class="bg-eg-orange text-white text-sm font-bold px-4 py-1 rounded-full mb-4 inline-block tracking-wide shadow-sm transform rotate-2">
+                    ¡BIENVENIDO DE VUELTA!
+                </div>
+
+                <h1 class="text-5xl font-bold text-eg-navy mb-4 leading-tight">
+                    <span class="text-eg-blue relative inline-block text-6xl">
+                        EnglishGo!
+                        <svg class="absolute w-full h-4 -bottom-1 left-0 text-eg-pink" viewBox="0 0 100 10" preserveAspectRatio="none" fill="currentColor"><path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z"></path></svg>
+                    </span>
+                </h1>
+                
+                <p class="text-gray-600 mt-4 font-medium text-xl">
+                    ¡Ingresa para seguir tu aventura y ganar más puntos!
+                </p>
+            </div>
+            
+            <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-eg-blue opacity-10 rounded-full blur-3xl"></div>
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-eg-orange opacity-10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="md:w-1/2 bg-white p-8 md:p-12 flex flex-col justify-center">
+            
+            <h2 class="text-4xl font-bold text-eg-navy mb-8 text-center md:text-left">Iniciar Sesión</h2>
+
+            <form id="loginForm" class="space-y-6" onsubmit="handleLogin(event)">
+                
+                <!-- Usuario Input with Kid Icon -->
+                <div class="space-y-2 relative group">
+                    <label for="username" class="block font-bold text-xl text-eg-navy ml-2">Usuario:</label>
+                    <div class="relative">
+                        <!-- Icono animado del niño -->
+                        <div class="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 group-focus-within:scale-125 group-focus-within:-translate-y-6 transition-transform duration-300 z-10 pointer-events-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-full h-full drop-shadow-md">
+                                <circle cx="32" cy="36" r="14" fill="#ffcca5"/>
+                                <path d="M16 64 C 16 48 24 46 32 46 C 40 46 48 48 48 64 Z" fill="#3b82f6"/>
+                                <path d="M26 46 Q 32 52 38 46" fill="#2563eb"/>
+                                <circle cx="27" cy="34" r="2.5" fill="#1e293b"/>
+                                <circle cx="37" cy="34" r="2.5" fill="#1e293b"/>
+                                <path d="M28 40 Q 32 44 36 40" stroke="#1e293b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                <path d="M18 30 C 18 14 46 14 46 30 Z" fill="#ef4444"/>
+                                <path d="M14 30 L 50 30" stroke="#ef4444" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <input type="text" id="username" required autocomplete="off"
+                               class="input-game w-full bg-blue-50 text-xl font-bold text-eg-navy py-4 pl-16 pr-4 rounded-[20px] placeholder-blue-300"
+                               placeholder="tu.usuario">
+                    </div>
+                </div>
+
+                <!-- Password Input with Key Icon -->
+                <div class="space-y-2 relative group mt-6">
+                    <label for="password" class="block font-bold text-xl text-eg-navy ml-2">Contraseña:</label>
+                    <div class="relative">
+                        <!-- Icono de la llave -->
+                        <div class="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 text-eg-orange group-focus-within:scale-110 transition-transform z-10 pointer-events-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-full h-full drop-shadow-sm">
+                                <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25c0 2.515 1.763 4.618 4.12 5.147L10.5 12.3v3.45a.75.75 0 0 0 .75.75h2.25a.75.75 0 0 0 .75-.75v-1.5h1.5a.75.75 0 0 0 .75-.75v-1.5h1.5a.75.75 0 0 0 .75-.75v-1.5l-.37-.353c2.357-.529 4.12-2.632 4.12-5.147A5.25 5.25 0 0 0 12 1.5Zm0 4.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <input type="password" id="password" required 
+                               class="input-game w-full bg-orange-50 text-xl font-bold text-eg-navy py-4 pl-16 pr-12 rounded-[20px] placeholder-orange-300"
+                               placeholder="••••••••">
+                        
+                        <button type="button" onclick="toggleSecret()" class="absolute right-5 top-1/2 -translate-y-1/2 text-2xl hover:scale-125 transition-transform focus:outline-none" title="Mostrar/Ocultar">
+                            <span id="eye-icon">🙈</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="pt-6">
+                    <button type="submit" id="loginBtn" class="btn-blue w-full text-2xl font-bold py-5 px-6 rounded-[24px] flex justify-center items-center gap-3 uppercase tracking-wide">
+                        <span id="btnText">¡ENTRAR A JUGAR! 🎮</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="successOverlay" class="fixed inset-0 bg-eg-bg/95 z-50 hidden flex-col items-center justify-center backdrop-blur-md">
+        <h1 class="text-5xl md:text-7xl font-bold text-eg-blue mb-6 animate-bounce-fun text-center" style="text-shadow: 0 6px 0 #2563eb, 0 0 20px rgba(255,255,255,0.8);">
+            ¡ACCESO PERMITIDO! 🌟
+        </h1>
+        <div class="bg-white py-8 px-12 rounded-[40px] shadow-[0_8px_0_#cbd5e1] border-4 border-white mt-4 text-center">
+            <p id="welcomeMessage" class="text-4xl text-eg-navy font-bold mb-2">
+                ¡Hola de nuevo!
+            </p>
+            <p class="text-xl text-gray-500 font-medium">Preparando tu aventura...</p>
+        </div>
+    </div>
+
+    <script>
+        let synth, successSynth;
+        let isAudioReady = false;
+
+        function initAudio() {
+            if (isAudioReady) return;
+            synth = new Tone.Synth({
+                oscillator: { type: "sine" },
+                envelope: { attack: 0.01, decay: 0.2, sustain: 0, release: 0.1 }
+            }).toDestination();
+
+            successSynth = new Tone.PolySynth(Tone.Synth, {
+                oscillator: { type: "triangle" },
+                envelope: { attack: 0.05, decay: 0.3, sustain: 0.4, release: 1 }
+            }).toDestination();
+
+            isAudioReady = true;
+        }
+
+        document.body.addEventListener('pointerdown', async () => {
+            if (!isAudioReady) {
+                await Tone.start();
+                initAudio();
+            }
+        }, { once: true });
+
+        function playHoverSound() { if (isAudioReady && synth) synth.triggerAttackRelease("C5", "16n"); }
+        function playClickSound() { if (isAudioReady && synth) synth.triggerAttackRelease("G5", "8n"); }
+        function playSuccessSound() {
+            if (isAudioReady && successSynth) {
+                const now = Tone.now();
+                successSynth.triggerAttackRelease(["C4", "E4", "G4", "C5"], "2n", now);
+                successSynth.triggerAttackRelease("G5", "4n", now + 0.3);
+            }
+        }
+
+        function createParticles(x, y) {
+            const emojis = ['⭐', '🚀', '🎉', 'A+'];
+            const colors = ['#10b981', '#3b82f6', '#f97316'];
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+                const angle = (Math.random() * Math.PI * 2);
+                const distance = 80 + Math.random() * 120;
+                particle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+                particle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 800);
+            }
+        }
+
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', playHoverSound);
+        });
+
+        function toggleSecret() {
+            playClickSound();
+            const pass = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+            if (pass.type === 'password') {
+                pass.type = 'text';
+                eyeIcon.innerText = '👁️'; 
+            } else {
+                pass.type = 'password';
+                eyeIcon.innerText = '🙈';
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            if (!isAudioReady) Tone.start().then(() => initAudio());
+
+            const username = document.getElementById('username').value;
+            const btn = document.getElementById('loginBtn');
+            const btnText = document.getElementById('btnText');
+            
+            const rect = btn.getBoundingClientRect();
+            playClickSound();
+            createParticles(rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+            btnText.innerHTML = 'CARGANDO... ⏳';
+            btn.style.backgroundColor = '#f97316';
+            btn.style.borderColor = '#ea580c';
+            btn.style.boxShadow = '0 6px 0 #ea580c';
+            
+            setTimeout(() => {
+                playSuccessSound();
+                const overlay = document.getElementById('successOverlay');
+                document.getElementById('welcomeMessage').innerText = `¡Hola, ${username}! 🚀`;
+                
+                overlay.classList.remove('hidden');
+                overlay.classList.add('flex');
+                
+                for(let i=0; i<4; i++){
+                    setTimeout(() => {
+                        createParticles(window.innerWidth/2 + (Math.random()*200-100), window.innerHeight/2 + (Math.random()*200-100));
+                    }, i * 200);
+                }
+
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                    overlay.classList.remove('flex');
+                    btnText.innerHTML = "¡ENTRAR A JUGAR! 🎮";
+                    btn.style.backgroundColor = '';
+                    btn.style.borderColor = '';
+                    btn.style.boxShadow = '';
+                    document.getElementById('loginForm').reset();
+                }, 3000);
+                
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
