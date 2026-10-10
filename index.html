@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnglishGo - Aprende Inglés Divirtiéndote</title>
+    <meta name="description" content="EnglishGo: Aprende temas básicos de inglés para 6to grado.">
+
+    <!-- Google Fonts: Nunito for a friendly, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#3b82f6',
+                            green: '#10b981',
+                            yellow: '#f59e0b',
+                            purple: '#8b5cf6',
+                            orange: '#f97316',
+                            pink: '#ec4899',
+                            dark: '#1e293b'
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f0fdfa; /* Light mint background */
+            /* Fun dot pattern */
+            background-image: radial-gradient(#bae6fd 2.5px, transparent 2.5px);
+            background-size: 40px 40px;
+        }
+        
+        .btn-large {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+        }
+        
+        .btn-large:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b-4 border-brand-blue">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-3 cursor-pointer group">
+                <div class="w-14 h-14 bg-brand-blue text-white rounded-full flex items-center justify-center text-2xl font-black shadow-lg group-hover:animate-wiggle border-4 border-white ring-2 ring-brand-blue">
+                    EG
+                </div>
+                <h1 class="text-3xl font-black text-brand-dark tracking-tight">English<span class="text-brand-orange">Go!</span></h1>
+            </div>
+
+            <!-- Navegación Desktop -->
+            <nav class="hidden md:flex gap-4">
+                <a href="#" class="px-6 py-2.5 rounded-full font-bold text-white bg-brand-green hover:bg-emerald-600 btn-large flex items-center gap-2 border-b-4 border-emerald-700 active:border-b-0 active:translate-y-1">
+                    <i class="fa-solid fa-gamepad text-lg"></i> Juegos
+                </a>
+                <a href="#" class="px-6 py-2.5 rounded-full font-bold text-white bg-brand-purple hover:bg-violet-600 btn-large flex items-center gap-2 border-b-4 border-violet-700 active:border-b-0 active:translate-y-1">
+                    <i class="fa-solid fa-book-open text-lg"></i> Lecciones
+                </a>
+                <a href="#" class="px-6 py-2.5 rounded-full font-bold text-white bg-brand-yellow hover:bg-amber-500 btn-large flex items-center gap-2 border-b-4 border-amber-600 active:border-b-0 active:translate-y-1 text-brand-dark">
+                    <i class="fa-solid fa-user-astronaut text-lg"></i> Mi Perfil
+                </a>
+            </nav>
+
+            <!-- Botón Menú Móvil -->
+            <button class="md:hidden text-brand-blue text-3xl hover:scale-110 transition-transform">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <main class="max-w-7xl mx-auto px-4 py-16 flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1 text-center md:text-left z-10">
+            <div class="inline-block px-4 py-1.5 bg-brand-pink/20 text-brand-pink font-extrabold rounded-full mb-4 text-sm tracking-wider uppercase">
+                Para Estudiantes de 6to Grado
+            </div>
+            <h2 class="text-5xl md:text-7xl font-black text-brand-dark mb-6 leading-[1.1]">
+                ¡Aprende <span class="text-brand-blue relative inline-block">
+                    Inglés
+                    <svg class="absolute w-full h-4 -bottom-1 left-0 text-brand-yellow" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent"/>
+                    </svg>
+                </span><br> 
+                de forma <span class="text-brand-pink">Divertida!</span>
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-600 mb-10 font-bold leading-relaxed">
+                Explora el mundo del inglés con juegos interactivos, lecciones fáciles y retos increíbles diseñados para ti.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
+                <button class="px-8 py-4 bg-brand-orange text-white text-xl font-black rounded-full btn-large flex items-center justify-center gap-3 border-b-4 border-orange-700 active:border-b-0 active:translate-y-1">
+                    <i class="fa-solid fa-rocket text-2xl"></i> ¡Empezar Ahora!
+                </button>
+                <button class="px-8 py-4 bg-white border-4 border-brand-blue text-brand-blue text-xl font-black rounded-full btn-large flex items-center justify-center gap-3 hover:bg-blue-50">
+                    <i class="fa-solid fa-circle-play text-2xl"></i> Ver Video
+                </button>
+            </div>
+        </div>
+        
+        <div class="flex-1 flex justify-center relative mt-10 md:mt-0 w-full">
+            <!-- Formas decorativas de fondo -->
+            <div class="absolute w-72 h-72 bg-brand-yellow rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob"></div>
+            <div class="absolute top-10 -right-10 w-72 h-72 bg-brand-blue rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob" style="animation-delay: 2s;"></div>
+            <div class="absolute -bottom-10 left-10 w-72 h-72 bg-brand-pink rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob" style="animation-delay: 4s;"></div>
+            
+            <!-- Imagen Principal -->
+            <div class="relative z-10 animate-float">
+                <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Niño aprendiendo" class="w-80 h-80 md:w-96 md:h-96 object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300">
+                
+                <!-- Insignias flotantes -->
+                <div class="absolute -top-6 -right-6 bg-white p-3 rounded-2xl shadow-xl rotate-12 flex items-center gap-2 border-2 border-gray-100">
+                    <span class="text-2xl">🌟</span>
+                    <span class="font-bold text-brand-dark">+100 Puntos</span>
+                </div>
+                <div class="absolute bottom-10 -left-10 bg-white p-3 rounded-2xl shadow-xl -rotate-12 flex items-center gap-2 border-2 border-gray-100">
+                    <span class="text-2xl">🎯</span>
+                    <span class="font-bold text-brand-dark">¡Nivel 5!</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SECCIÓN DE TEMAS -->
+    <section class="max-w-7xl mx-auto px-4 py-16 relative">
+        <div class="text-center mb-14">
+            <h3 class="text-4xl md:text-5xl font-black text-brand-purple mb-4">Tus Aventuras de Hoy</h3>
+            <p class="text-xl text-gray-600 font-bold">¡Elige un tema y comienza a jugar y aprender!</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Tarjeta 1: Animales -->
+            <div class="bg-white rounded-[2.5rem] p-8 card-hover border-4 border-blue-100 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform"></div>
+                <div class="w-24 h-24 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-6 text-5xl border-4 border-white shadow-lg group-hover:animate-bounce">
+                    🐶
+                </div>
+                <h4 class="text-3xl font-black text-center text-brand-dark mb-3">Animals</h4>
+                <p class="text-center text-gray-600 mb-8 font-bold text-lg leading-snug">Aprende los nombres de tus animales favoritos.</p>
+                <button class="w-full py-4 bg-brand-blue text-white rounded-full font-black text-xl hover:bg-blue-600 btn-large flex items-center justify-center gap-2 border-b-4 border-blue-700 active:border-b-0 active:translate-y-1">
+                    Jugar <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Tarjeta 2: Comida -->
+            <div class="bg-white rounded-[2.5rem] p-8 card-hover border-4 border-green-100 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform"></div>
+                <div class="w-24 h-24 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-6 text-5xl border-4 border-white shadow-lg group-hover:animate-bounce">
+                    🍎
+                </div>
+                <h4 class="text-3xl font-black text-center text-brand-dark mb-3">Food & Drinks</h4>
+                <p class="text-center text-gray-600 mb-8 font-bold text-lg leading-snug">Descubre deliciosas comidas y bebidas en inglés.</p>
+                <button class="w-full py-4 bg-brand-green text-white rounded-full font-black text-xl hover:bg-emerald-600 btn-large flex items-center justify-center gap-2 border-b-4 border-emerald-700 active:border-b-0 active:translate-y-1">
+                    Jugar <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Tarjeta 3: Colores -->
+            <div class="bg-white rounded-[2.5rem] p-8 card-hover border-4 border-orange-100 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -z-10 group-hover:scale-125 transition-transform"></div>
+                <div class="w-24 h-24 mx-auto bg-orange-100 rounded-full flex items-center justify-center mb-6 text-5xl border-4 border-white shadow-lg group-hover:animate-bounce">
+                    🎨
+                </div>
+                <h4 class="text-3xl font-black text-center text-brand-dark mb-3">Colors</h4>
+                <p class="text-center text-gray-600 mb-8 font-bold text-lg leading-snug">Colorea tu mundo aprendiendo todos los colores.</p>
+                <button class="w-full py-4 bg-brand-orange text-white rounded-full font-black text-xl hover:bg-orange-600 btn-large flex items-center justify-center gap-2 border-b-4 border-orange-700 active:border-b-0 active:translate-y-1">
+                    Jugar <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark mt-16 pt-16 pb-8 rounded-t-[4rem] border-t-8 border-brand-blue">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between text-white gap-8 mb-12">
+                
+                <div class="flex flex-col items-center md:items-start gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-white text-brand-dark rounded-full flex items-center justify-center text-2xl font-black">
+                            EG
+                        </div>
+                        <span class="text-3xl font-black">English<span class="text-brand-orange">Go!</span></span>
+                    </div>
+                    <p class="text-gray-400 font-semibold text-center md:text-left max-w-sm">
+                        Plataforma educativa para aprender inglés de manera interactiva y divertida. Diseñada para estudiantes de 6to grado.
+                    </p>
+                </div>
+
+                <div class="flex gap-4">
+                    <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-blue transition-colors text-xl">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-blue transition-colors text-xl">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-blue transition-colors text-xl">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+
+            </div>
+            
+            <div class="border-t-2 border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 font-semibold text-sm">
+                <p>© 2026 EnglishGo. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Términos</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+                    <a href="#" class="hover:text-white transition-colors">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
